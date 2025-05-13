@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  backend:
+    build: backend
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network  # Explicitly define network
+
+  frontend:
+    build: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - app-network  # Explicitly define network
+
+networks:
+  app-network:  # Define the custom network here
