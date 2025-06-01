@@ -1,31 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { CssBaseline, Box, Container } from '@mui/material';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import HomePage from './components/HomePage';
+import GreetPage from './components/GreetPage';
+import AboutPage from "./components/AboutPage";
+import ContactPage from "./components/ContactPage";
 
 function App() {
-    const [message, setMessage] = useState("");
-
-    useEffect(() => {
-        const backendUrl = process.env.BACKEND_URL || "http://localhost:8080";
-        fetch(`${backendUrl}/api/hello`)
-            .then(res => res.text())
-            .then(data => setMessage(data))
-            .catch(err => {
-                console.error("Failed to fetch", err);
-                setMessage("Failed to fetch");
-            });
-    }, []);
-    // useEffect(() => {
-    //     fetch("/api/hello")  // 'backend' is the docker-compose service name
-    //         .then(res => res.text())
-    //         .then(data => setMessage(data))
-    //         .catch(err => console.error("Error:", err));
-    // }, []);
-
-
     return (
-        <div>
-            <h1>Hello from React</h1>
-            <p>{message}</p>
-        </div>
+        <>
+            <CssBaseline />
+            <Box display="flex" flexDirection="column" minHeight="100vh">
+                <Header />
+                <Container component="main" sx={{ mt: 4, mb: 2, flexGrow: 1 }}>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/greet" element={<GreetPage />} />
+                        <Route path="/about" element={<AboutPage />} />
+                        <Route path="/contact" element={<ContactPage />} />
+                    </Routes>
+                </Container>
+                <Footer />
+            </Box>
+        </>
     );
 }
 

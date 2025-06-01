@@ -1,6 +1,4 @@
-package com.demo.helloworld.controller;
+package com.demo.helloworld.model;
 
 
-public record NameRequest (
-    String name){
-}
+public record NameRequest (String name){}

@@ -1,16 +1,16 @@
 
-# Hello World Docker - React + Spring Boot
-Demo Full Stack project for learning docker
+# GreetMe Docker - React + Spring Boot
 
-
-This is a simple full-stack application using **React** for the frontend and **Spring Boot** for the backend. Both services are Dockerized and managed using **Docker Compose**.
+GreetMe is a simple full-stack web application built with **Spring Boot** and **React**. It allows users to submit their name and receive a greeting message.
+Both backend and frontend services are Dockerized and managed using **Docker Compose**.
 
 ---
 
 ## 🧰 Tech Stack
 
-- **Frontend**: React (JavaScript)
-- **Backend**: Spring Boot (Java)
+- **Frontend**: React 18, Material UI
+- **Backend**: Java 17, Spring Boot
+- **Build Tool**: Maven
 - **Containerization**: Docker
 - **Orchestration**: Docker Compose
 
@@ -18,13 +18,14 @@ This is a simple full-stack application using **React** for the frontend and **S
 
 ## 📁 Project Structure
 
-hello-world-docker/
-├── backend/ # Spring Boot app
-│ ├── Dockerfile
-│ └── target/hello-world-with-docker-0.0.1-SNAPSHOT.jar
-├── frontend/ # React app
-│ ├── Dockerfile
-│ └── src/
+greetme/
+├── backend/           # Spring Boot application
+│   ├── src/
+│   └── pom.xml
+├── frontend/          # React application
+│   ├── public/
+│   ├── src/
+│   └── package.json
 ├── docker-compose.yml
 └── README.md
 
@@ -45,7 +46,7 @@ hello-world-docker/
 ```bash
 cd backend
 ./mvnw clean package
-
+```
 ---
 
 ### 3️⃣ Run the Full Stack App with Docker Compose
@@ -56,6 +57,6 @@ docker-compose up --build
 
 This command will build and start both the frontend and backend services in Docker containers.
 
-🔍 Access the Applications:
+## 🔍 Access the Applications:
 - **Frontend**: [http://localhost:3000](http://localhost:3000)
 - **Backend (API)**: [http://localhost:8080](http://localhost:8080)

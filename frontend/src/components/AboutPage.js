@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Paper } from '@mui/material';
 
-const About = () => {
+const AboutPage = () => {
     return (
         <Paper elevation={3} sx={{ padding: 4 }}>
             <Typography variant="h4" gutterBottom>
@@ -18,4 +18,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default AboutPage;
